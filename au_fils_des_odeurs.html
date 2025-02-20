@@ -1,4 +1,4 @@
-<!-- temps : 8h -->
+<!-- temps : 9h problemes rencontre : 2 resolue : 1 -->
 <html>
 	<head>
 		<!-- Encodage et compatibilité -->
@@ -13,7 +13,7 @@
     <meta name="keywords" content="odeurs">
     <meta name="author" content="Au Fil des Odeurs">
 	<meta name="generator" content="Product By Famobuty">
-
+	
 		<style>
 @import url('https://fonts.cdnfonts.com/css/open-sauce-one');
 @import url('https://fonts.cdnfonts.com/css/open-sans');
@@ -127,9 +127,10 @@ a:hover{
 p{color: var(--color-text-primary);}
 ul,li{color: var(--color-text-primary);}
 nav {
-    position: sticky;
+    position: fixed;
     top: 0;
-    left: 100%;
+    /*left: 100%;*/
+	right:0;
 	display: flex;
 	flex-wrap: wrap;
 	align-items:center;
@@ -149,8 +150,8 @@ section {
     max-height: max-content;
     padding:var(--gap);
 	padding-top:calc( 4 * var(--gap));
-	scroll-snap-align: start;
-	scroll-snap-stop: always;
+	scroll-snap-align: start end;
+	scroll-snap-stop: normal;
 }
 section:nth-child(2n){
 	background-color:var(--color-secondary);
@@ -334,9 +335,6 @@ ul.custom>li::before{
 		</style>
 	</head>
 	<body>
-		<svg>
-			
-		</svg>
 		<nav class="w-9">
 			<a href="#au-fil-des-odeurs">Accueil</a>
 			<a href="#a-propos">A propos de moi</a>
@@ -378,19 +376,19 @@ ul.custom>li::before{
 				</div>
 				<div class="w-7 col">
 					<h2>A PROPOS DE MOI</h2>
-					<div class="testimonial testimonial-top-right" data-aos="fade-down">
+					<div class="testimonial testimonial-top-right">
 						<div class="testimonial-picture">
 							<img src="https://aufildesodeurs.com/_assets/media/b2801168ea91aa14c1fc540fbe9065d2.jpg" alt="" />
 						</div>
 						<p>Depuis mon enfance, l’odorat est le sens le plus développé chez moi : je sens, je garde en mémoire et je m’enrichie d’odeurs nouvelles. J’en ai fait mon métier depuis 10 ans en créant des ingrédients aromatiques et olfactifs et en proposant des innovations culinaires.</p>
 					</div>
-					<div class="testimonial testimonial-bottom-left" data-aos="fade-down">
+					<div class="testimonial testimonial-bottom-left">
 						<p>Chaque odeur évoquée ou sentie, procure un enthousiasme personnel et collectif où chacun naturellement se livre sur son histoire. Tout le monde a sa madeleine de Proust....</p>
 						<div class="testimonial-picture">
 							<img src="https://aufildesodeurs.com/_assets/media/08e09849d2598acad9f9a6a48f994c22.jpg" alt="" />
 						</div>
 					</div>
-					<div class="testimonial testimonial-top-right" data-aos="fade-down">
+					<div class="testimonial testimonial-top-right">
 						<div class="testimonial-picture">
 							<img src="https://aufildesodeurs.com/_assets/media/33faee422e4556941fa83b545d9f9adb.jpg" alt="" />
 						</div>
@@ -399,24 +397,24 @@ ul.custom>li::before{
 				</div>
 			</section>
 			<section id="olfaction" class="row p-1" >
-				<div class="w-6 col" data-aos="fade-right">
+				<div class="w-6 col">
 					<h2>L'OLFACTION</h2>
 					<p>L’odorat est un sens trop souvent sous-estimé dans le développement de l’enfant. Pourtant, de nombreuses études scientifiques ont démontré son importance dans la perception et l’analyse de l’environnement qui l'entoure.</p>
 					<p>L’odorat joue un rôle crucial tout au long de notre vie, il est l’un des premiers sens à se développer chez le fœtus. En grandissant, l’enfant apprend à classifier les odeurs, émettre une opinion sur ses préférences puis développer son vocabulaire organoleptique. Plus tard, l’odorat permettra également de détecter les dangers.</p>
 					<p>L'odorat reste directement relié à notre cerveau limbique, qui est responsable de nos émotions, de notre mémoire, de nos souvenirs et de notre apprentissage. Une véritable dynamique de groupe est créée en encourageant les échanges autour d'une thématique définie. </p>
 				</div>
-				<div class="w-6 round" data-aos="fade-right">
+				<div class="w-6 round">
 					<img src="https://aufildesodeurs.com/_assets/media/5d443526a96e08976ff525823912085f.jpg" alt="moi" class="img-full" />
 				</div>
 			</section>
 			<section id="creations" class="col">
 				<h2>LES CRÉATIONS</h2>
 				<div class="row p-1 w-8">
-					<div class="card" data-aos="zoom-in" data-target="signature-olfactive">
+					<div class="card" data-target="signature-olfactive">
 						<h3 class="card-title bg-3">Les entreprises</h3>
 						<img src="https://aufildesodeurs.com/_assets/media/7e7abe3919d438838e4860bf5db60372.jpg" alt="Les entreprises" />
 					</div>
-					<div class="card" data-aos="zoom-in" data-target="atelier-parfum">
+					<div class="card" data-target="atelier-parfum">
 						<h3 class="card-title bg-2">Les particulies</h3>
 						<img src="https://aufildesodeurs.com/_assets/media/0b15ba8319ae0ce22f845981848f211c.jpg" alt="Les particulies" />
 					</div>
@@ -425,11 +423,11 @@ ul.custom>li::before{
 			<section id="ateliers" class="col">
 				<h2>LES ATELIERS OLFACTIFS</h2>
 				<div class="row p-1 w-8">
-					<div class="card" data-aos="zoom-in" data-target="atelier-enfant">
+					<div class="card" data-target="atelier-enfant">
 						<h3 class="card-title bg-1">Les Enfants</h3>
 						<img src="https://aufildesodeurs.com/_assets/media/95599701cb28620550daee8295653423.jpg" alt="Les Enfants" />
 					</div>
-					<div class="card" data-aos="zoom-in" data-target="atelier-senior">
+					<div class="card" data-target="atelier-senior">
 						<h3 class="card-title bg-1">Les Séniors</h3>
 						<img src="https://aufildesodeurs.com/_assets/media/c39c6990dc2eecb87af1224990c087b5.jpg" alt="Les Séniors" />
 					</div>
@@ -464,7 +462,7 @@ ul.custom>li::before{
 			</section>
 			<section id="deplacement" class="col p-1">
 				<h2>Je me DÉPLACE</h2>
-				<div class="row" data-aos="fade-left">
+				<div class="row" >
 					<div class="w-5 col">
 						<p>Autour d’Angers :</p>
 						<ul class="custom">
@@ -480,7 +478,7 @@ ul.custom>li::before{
 			</section>
 			<section id="contact" class="col">
 				<h2>Me cONTACTer</h2>
-				<div class="row" data-aos="fade-right">
+				<div class="row" >
 					<div class="col">
 						<p>AU FIL DES ODEURS</p>
 					</div>
@@ -492,11 +490,11 @@ ul.custom>li::before{
 			<section id="blog" class="col">
 				<h2>BLOG</h2>
 				<div class="row">
-					<div class="w-6" data-aos="zoom-in">
-						<!-- <embed src="https://www.canva.com/design/DAGW0IrdbwE/Wo0pLy7OhW_Lurlx6SFbZg/view?embed&meta" class="blog" loading="lazy" /> -->
+					<div class="w-6" >
+						<iframe src="https://www.canva.com/design/DAGW0IrdbwE/Wo0pLy7OhW_Lurlx6SFbZg/view?embed&meta" class="blog" loading="lazy" />
 					</div>
-					<div class="w-6" data-aos="zoom-in">
-						<!-- <embed src="https://www.canva.com/design/DAGY4cAYJnU/82yNogi--tRI6wlOod_6ag/view?embed&meta" class="blog" loading="lazy" /> -->
+					<div class="w-6" >
+						<iframe src="https://www.canva.com/design/DAGY4cAYJnU/82yNogi--tRI6wlOod_6ag/view?embed&meta" class="blog" loading="lazy" />
 					</div>
 				</div>
 			</section>
@@ -524,9 +522,7 @@ ul.custom>li::before{
 		<dialog id="atelier-senior" class="bg-1">
 		
 		</dialog>
-		<script src="https://unpkg.com/aos@next/dist/aos.js"></script>
 		  <script>
-			AOS.init();
 			document.querySelectorAll("dialog").forEach(dialog=>{
 				const id = dialog.id
 				dialog.addEventListener('click', function(event) {
