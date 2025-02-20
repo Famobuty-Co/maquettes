@@ -1,0 +1,522 @@
+<!-- temps : 6h -->
+<html>
+	<head>
+		<style>
+@import url('https://fonts.cdnfonts.com/css/open-sauce-one');
+@import url('https://fonts.cdnfonts.com/css/open-sans');
+@import url('https://fonts.cdnfonts.com/css/fabada');
+
+/* [PARTICULES]*/
+:root {
+    --gap: 1em;
+    --gap-half: calc( var(--gap) / 2 );
+	
+    /* Largeur dynamique fluide */
+    --w-1: calc(1 / 12 * 100vw);
+    --w-2: calc(2 / 12 * 100vw);
+    --w-3: calc(3 / 12 * 100vw);
+    --w-4: calc(4 / 12 * 100vw);
+    --w-5: calc(5 / 12 * 100vw);
+    --w-6: calc(6 / 12 * 100vw);
+    --w-7: calc(7 / 12 * 100vw);
+    --w-8: calc(8 / 12 * 100vw);
+    --w-9: calc(9 / 12 * 100vw);
+    
+    --font-primary: 'Open Sauce One', sans-serif;
+    --font-secondary: 'Open Sans', sans-serif;
+    --font-accent: 'Fabada', sans-serif;
+
+    /* 🌞 Couleurs principales */
+    --color-primary: #fff6ea;  /* Fond principal (background général) */
+    --color-secondary: #428072; /* Secondaire (fond de section, éléments d'accent) */
+    --color-accent: #fff9eb; /* Accent (hover, éléments en surbrillance) */
+    
+    /* 🌗 Couleurs de texte */
+    --color-light: #fff;  /* Texte sur fond sombre */
+    --color-text-dark: #000;  /* Texte sur fond clair */
+    --color-text-primary: var(--color-text-dark); /* Texte principal (change selon le contexte) */
+    
+    /* 🔗 Couleurs des liens */
+    --color-link: #005f73; /* Liens normaux */
+    --color-link-hover: #0a9396; /* Liens au survol */
+    
+    /* 🛑 États et feedback */
+    --color-success: #1b9e77;  /* Succès / confirmation */
+    --color-warning: #e9c46a;  /* Avertissement */
+    --color-error: #e76f51;  /* Erreur */
+    
+    /* 🖌️ Autres */
+    --color-border: rgba(0, 0, 0, 0.1); /* Couleur des bordures */
+    --color-underline: var(--color-secondary); /* Barre sous les titres */
+
+	
+	--muted:.8;
+}
+* {
+    box-sizing: border-box;
+}
+html {
+    scroll-behavior: smooth;
+	scroll-snap-type: y proximity;
+}
+body {
+    margin: 0;
+    font-family: var(--font-primary);
+	background-color:var(--color-primary);
+	color:var(--color-text-primary);
+	transition: background 0.5s ease-in-out;
+}
+h1 {
+    font-size: 40px;
+    font-family: var(--font-primary);
+	text-align:center;
+	text-transform:capitalize;
+	font-weight: 400;margin: auto;
+}
+
+h2 {
+    font-size: 50px;
+	font-weight: 400;
+    position: relative;
+    padding-bottom: 16px;
+    text-align: center;
+    text-transform: uppercase;
+    font-family: var(--font-accent);
+	color:var(--color-text-primary);
+}
+
+h2:after {
+    content: "";
+    display: block;
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 210px;
+    height: 4px;
+    background: var(--color-underline);
+	z-index:1;
+}
+
+a {
+    font-family: var(--font-secondary);
+    font-size: 17.3335px;
+    color: var(--color-text-link);
+    line-height: 25px;
+    letter-spacing: 0.02em;
+    text-decoration: none;
+    font-weight: 400;
+	transition:color .4s ease-in-out;
+}
+a:hover{
+	color: var(--color-link-hover);
+}
+p{color: var(--color-text-primary);}
+ul,li{color: var(--color-text-primary);}
+nav {
+    position: sticky;
+    top: 0;
+    left: 100%;
+	display: flex;
+	flex-wrap: wrap;
+	align-items:center;
+	padding:var(--gap);
+	justify-content: center;
+	z-index:100;
+}
+nav>*{
+	padding-left:var(--gap);
+	text-transform:capitalize;
+}
+nav a:hover{
+	color: var(--color-link-hover);
+}
+section {
+    min-height: 50vh;
+    max-height: max-content;
+    padding:var(--gap);
+	padding-top:calc( 4 * var(--gap));
+	scroll-snap-align: start;
+	scroll-snap-stop: always;
+}
+section:nth-child(2n){
+	background-color:var(--color-secondary);
+}
+section:nth-child(2n)>*{
+	--color-underline:var(--color-light);
+	--color-text-primary:var(--color-light);
+}
+
+dialog{
+	width: 100vmin;
+	aspect-ratio:3/4;
+	border:none;
+	border-radius:5px;
+}
+dialog::backdrop {
+	background: #1118;
+	backdrop-filter: blur(3px);
+}
+
+
+/* [ATOMES]*/
+
+.row {
+    display: flex;
+    gap: var(--gap);
+    margin: auto;
+	
+}
+.row,.col{width:100%;}
+.col {
+    display: flex;
+    flex-direction: column;
+    gap: var(--gap);
+    margin: auto;
+}
+
+.p-1 { padding-left: var(--w-1);padding-right: var(--w-1); }
+.p-2 { padding-left: var(--w-2);padding-right: var(--w-2); }
+.w-3 { width: var(--w-3); }
+.w-4 { width: var(--w-4); }
+.w-5 { width: var(--w-5); }
+.w-6 { width: var(--w-6); }
+.w-8 { width: var(--w-8); }
+.w-9 { width: var(--w-9); }
+.bg-0{background-color:var(--color-primary);color:var(--color-dark);}
+.bg-1{background-color:var(--color-secondary);color:var(--color-light);}
+.bg-2{background-color:var(--color-accent);color:var(--color-dark);}
+.bg-3{background-color:var(--color-light);color:var(--color-dark);}
+
+.box {
+    min-height:256px;
+    background: #888;
+}
+  
+img:not(.img-full){
+	width:100%;
+	height:auto;
+}
+.img-full{object-fit: cover;width:100%;height:100%;}
+.img-cover{object-fit: cover;}
+.img-contain{object-fit: contain;}
+
+.round{border-radius:32px;}
+.round:has(img,video){overflow:hidden;}
+
+.center{margin:auto;}
+
+.cta-text,.cta-btn{text-transform:uppercase;}
+
+ul.custom{
+	list-style-type: none;
+}
+ul.custom>li{position:relative;height:24px;}
+ul.custom>li::before{
+	content:"";display:block;
+	width:16px;
+	height:24px;
+	background:var(--color-text-primary);
+	clip-path: path('M8 0c0 9 8 9 8 15A1 1 0 010 15Q1 6 8 0');
+	position: absolute;
+  left: 0;
+	transform: translateX(calc(-100% - var(--gap)));
+}
+.side-media{
+	aspect-ratio:5/13;
+	max-width:100%;
+	max-height:80vh;
+}
+.side-media>*{width:100%;height:100%;object-fit:cover;}
+/* [MOLECULES]*/
+
+.testimonial{display: flex;
+	gap: var(--gap);
+}
+.testimonial>p{
+	width:100%;text-align:justify;
+}
+.testimonial-picture{border-radius:100%;background:var(--color-light);position:relative;width:16%;aspect-ratio:1;margin: auto var(--gap);}
+.testimonial-picture>img{border-radius:100%;width:90%;height:90%;position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);}
+
+.testimonial-top-right>.testimonial-picture{border-top-right-radius:0;}
+.testimonial-top-right,.testimonial-bottom-right>p{margin-right:calc(var(--gap) * 2 + 16%);}
+.testimonial-bottom-right>.testimonial-picture{border-bottom-right-radius:0;}
+
+.testimonial-bottom-left>.testimonial-picture{border-bottom-left-radius:0;}
+.testimonial-bottom-left>p{margin-left:calc(var(--gap) * 2 + 16%);}
+
+.card[data-target]{cursor:pointer;}
+.card{
+	aspect-ratio:2/3;
+	position:relative;
+	transition: scale .4s ease-in-out,filter .4s ease-in-out;
+	max-height:75vh;
+	max-width: var(--w-5);
+	filter:drop-shadow(0px 1px 10px #0008) brightness(90%);
+}
+.card:hover{
+	scale:.98;
+	filter:drop-shadow(1px 3px 5px #0008) brightness(110%);
+}
+.card img{width:100%;height:100%;object-fit:cover;border-radius:32px;}
+.card-title{
+	border-radius:2em;
+	min-height:4em;
+	padding:1.5em;
+	position:absolute;
+	left:50%;top:0;width: max-content;
+	transform:translate(-50%,-50%);
+}
+
+.blog{
+	aspect-ratio:8/10;
+	max-height:100vh;
+	max-width:100%;
+	margin: auto;
+	width: fit-content;
+	display: block;
+}
+
+@media screen and (max-aspect-ratio:1) {
+	section{
+		max-height: max-content;
+	}
+	.row {
+			flex-direction: column;
+			align-items: center;
+		}
+		.row > .col,
+	.col > .row {width: 100%;}
+		:root{
+			--w-3: 50%;
+			--w-4: 50%;
+			--w-5: 50%;
+			--w-6: 100%;
+			--w-7: 100%;
+			--w-8: 100%;
+			--w-9: 100%;
+		}
+		.p-1{padding-left:0;padding-right:0;}
+		.p-2{padding-left:var(--gap);padding-right:var(--gap);}
+	}
+	.card{max-width:100vw;width:100%;}
+}
+		</style>
+	</head>
+	<body>
+		<svg>
+			
+		</svg>
+		<nav class="w-9">
+			<a href="#au-fil-des-odeurs">Accueil</a>
+			<a href="#a-propos">A propos de moi</a>
+			<a href="#olfaction">L'olfaction</a>
+			<a href="#creations">Les créations</a>
+			<a href="#ateliers">Les ateliers olfactifs</a>
+			<a href="#sur-mesure">sur mesure</a>
+			<a href="#deplacement">Je me déplace</a>
+			<a href="#contact">Contact</a>
+			<a href="#blog">blog</a>
+		</nav>
+		<main>
+			<section id="au-fil-des-odeurs" class="col">
+				<h1 class="w-9" >Vous souhaitez donner une dimension sensorielle à vos projets ?</h1>
+				<div class="row">
+					<div class="w-6">
+						<picture>
+							<source srcset="https://aufildesodeurs.com/_assets/media/844ec4670f1a8e67973fad4447d98663.jpg" media="(min-width: 1024px)">
+							<img style="-webkit-mask-image: linear-gradient(black, transparent);mask-image: linear-gradient(black, transparent);" 
+								src="https://aufildesodeurs.com/_assets/media/844ec4670f1a8e67973fad4447d98663.jpg"
+								alt="bannière : odeur orangé" class="img-cover"
+								loading="lazy" decoding="async"
+							>
+						</picture>
+					</div>
+					<div class="w-6 col">
+						<img style="width:clamp(256px,75%,25vw);margin:auto;" 
+							src="https://aufildesodeurs.com/_assets/media/0faee441535b6d5d25a0d8619decdfdf.png"
+							alt="logo arrière plan" class="img-contain"
+							loading="lazy" decoding="async"
+						/>
+						<h2>AU FIL DES ODEURS</h2>
+						<p>Ateliers olfactifs et création de parfums</p>
+					</div>
+				</div>
+			</section>
+			<section id="a-propos" class="row">
+				<div class="w-5 round side-media">
+					<video controls preload="none" poster="https://aufildesodeurs.com/_assets/media/a657920ab524fe2ab9dd2bfa57d94686.png" class="img-full">
+						<source src="https://aufildesodeurs.com/_assets/video/be8c3cebe28a9e5c137867428abae296.mp4" type="video/mp4">
+					</video>
+				</div>
+				<div class="w-7 col">
+					<h2>A PROPOS DE MOI</h2>
+					<div class="testimonial testimonial-top-right" data-aos="fade-down">
+						<div class="testimonial-picture">
+							<img src="https://aufildesodeurs.com/_assets/media/b2801168ea91aa14c1fc540fbe9065d2.jpg" alt="" />
+						</div>
+						<p>Depuis mon enfance, l’odorat est le sens le plus développé chez moi : je sens, je garde en mémoire et je m’enrichie d’odeurs nouvelles. J’en ai fait mon métier depuis 10 ans en créant des ingrédients aromatiques et olfactifs et en proposant des innovations culinaires.</p>
+					</div>
+					<div class="testimonial testimonial-bottom-left" data-aos="fade-down">
+						<p>Chaque odeur évoquée ou sentie, procure un enthousiasme personnel et collectif où chacun naturellement se livre sur son histoire. Tout le monde a sa madeleine de Proust....</p>
+						<div class="testimonial-picture">
+							<img src="https://aufildesodeurs.com/_assets/media/08e09849d2598acad9f9a6a48f994c22.jpg" alt="" />
+						</div>
+					</div>
+					<div class="testimonial testimonial-top-right" data-aos="fade-down">
+						<div class="testimonial-picture">
+							<img src="https://aufildesodeurs.com/_assets/media/33faee422e4556941fa83b545d9f9adb.jpg" alt="" />
+						</div>
+						<p>Maman de deux adorables enfants, je souhaite aujourd'hui partager et transmettre avec bienveillance mon univers des odeurs à travers ces ateliers.</p>
+					</div>
+				</div>
+			</section>
+			<section id="olfaction" class="row p-1" >
+				<div class="w-6 col" data-aos="fade-right">
+					<h2>L'OLFACTION</h2>
+					<p>L’odorat est un sens trop souvent sous-estimé dans le développement de l’enfant. Pourtant, de nombreuses études scientifiques ont démontré son importance dans la perception et l’analyse de l’environnement qui l'entoure.</p>
+					<p>L’odorat joue un rôle crucial tout au long de notre vie, il est l’un des premiers sens à se développer chez le fœtus. En grandissant, l’enfant apprend à classifier les odeurs, émettre une opinion sur ses préférences puis développer son vocabulaire organoleptique. Plus tard, l’odorat permettra également de détecter les dangers.</p>
+					<p>L'odorat reste directement relié à notre cerveau limbique, qui est responsable de nos émotions, de notre mémoire, de nos souvenirs et de notre apprentissage. Une véritable dynamique de groupe est créée en encourageant les échanges autour d'une thématique définie. </p>
+				</div>
+				<div class="w-6 round" data-aos="fade-right">
+					<img src="https://aufildesodeurs.com/_assets/media/5d443526a96e08976ff525823912085f.jpg" alt="moi" class="img-full" />
+				</div>
+			</section>
+			<section id="creations" class="col">
+				<h2>LES CRÉATIONS</h2>
+				<div class="row p-1 w-8">
+					<div class="card" data-aos="zoom-in" data-target="signature-olfactive">
+						<h3 class="card-title bg-3">Les entreprises</h3>
+						<img src="https://aufildesodeurs.com/_assets/media/7e7abe3919d438838e4860bf5db60372.jpg" alt="Les entreprises" />
+					</div>
+					<div class="card" data-aos="zoom-in" data-target="atelier-parfum">
+						<h3 class="card-title bg-2">Les particulies</h3>
+						<img src="https://aufildesodeurs.com/_assets/media/0b15ba8319ae0ce22f845981848f211c.jpg" alt="Les particulies" />
+					</div>
+				</div>
+			</section>
+			<section id="ateliers" class="col">
+				<h2>LES ATELIERS OLFACTIFS</h2>
+				<div class="row p-1 w-8">
+					<div class="card" data-aos="zoom-in" data-target="atelier-enfant">
+						<h3 class="card-title bg-1">Les Enfants</h3>
+						<img src="https://aufildesodeurs.com/_assets/media/95599701cb28620550daee8295653423.jpg" alt="Les Enfants" />
+					</div>
+					<div class="card" data-aos="zoom-in" data-target="atelier-senior">
+						<h3 class="card-title bg-1">Les Séniors</h3>
+						<img src="https://aufildesodeurs.com/_assets/media/c39c6990dc2eecb87af1224990c087b5.jpg" alt="Les Séniors" />
+					</div>
+				</div>
+			</section>
+			<section id="sur-mesure" class="row p-1">
+				<div class="w-5 round box side-media">
+					<video controls preload="none" poster="https://aufildesodeurs.com/_assets/media/a657920ab524fe2ab9dd2bfa57d94686.png">
+						<source src="https://aufildesodeurs.com/_assets/video/be8c3cebe28a9e5c137867428abae296.mp4" type="video/mp4">
+					</video>
+				</div>
+				<div class="w-7 col">
+					<h2>SUR MESURE</h2>
+					<svg width="50%" viewBox="0 0 100 50" class="center">
+						<path d="M 30 40 A 1 1 0 0 1 70 40 L 80 40 A 1 1 0 0 0 20 40 Z" fill="var(--color-light)" opacity="var(--muted)" />
+						<g style="transform:translate(50px,40px);">
+							<path d="M -4 0 A 1 1 0 0 0 4 0 L 2 -24 Q 0 -25 -2 -24 Z" fill="var(--color-light)">
+								<animateTransform attributeName="transform" type="rotate" from="-80 0 0" to="33 0 0" dur="5s" fill="freeze" />
+							</path>
+						</g>
+					</svg>
+					<p>Les ateliers sont modulables : </p>
+					<ul class="custom">
+						<li>en groupe ou collectif</li>
+						<li>de 1h à la journée entière</li>
+						<li>à la fréquence de votre choix</li>
+					</ul>
+					<p class="cta-text">
+						Tentez l'expérience sensorielle Pédagogique et PLEINE DE SOUVENIRS
+					</p>
+				</div>
+			</section>
+			<section id="deplacement" class="col p-1">
+				<h2>Je me DÉPLACE</h2>
+				<div class="row" data-aos="fade-left">
+					<div class="w-5 col">
+						<p>Autour d’Angers :</p>
+						<ul class="custom">
+							<li>45 min pour les ateliers olfactifs</li>
+							<li>1h30 pour les créations de parfums</li>
+						</ul>
+						<div class="box"></div>
+					</div>
+					<div class="w-7">
+						<img class="img-cover" src="https://aufildesodeurs.com/_assets/media/a657920ab524fe2ab9dd2bfa57d94686.png" alt="carte">
+					</div>
+				</div>
+			</section>
+			<section id="contact" class="col">
+				<h2>Me cONTACTer</h2>
+				<div class="row" data-aos="fade-right">
+					<div class="col">
+						<p>AU FIL DES ODEURS</p>
+					</div>
+					<div class="box w-2">
+						<img class="img-cover" src="https://aufildesodeurs.com/_assets/media/3d3a9b47ded8b64c06e3a5542814d8f8.png" alt="AU FIL DES ODEURS" >
+					</div>
+				</div>
+			</section>
+			<section id="blog" class="col">
+				<h2>BLOG</h2>
+				<div class="row">
+					<div class="w-6" data-aos="zoom-in">
+						<!-- <embed src="https://www.canva.com/design/DAGW0IrdbwE/Wo0pLy7OhW_Lurlx6SFbZg/view?embed&meta" class="blog" loading="lazy" /> -->
+					</div>
+					<div class="w-6" data-aos="zoom-in">
+						<!-- <embed src="https://www.canva.com/design/DAGY4cAYJnU/82yNogi--tRI6wlOod_6ag/view?embed&meta" class="blog" loading="lazy" /> -->
+					</div>
+				</div>
+			</section>
+		</main>
+		<dialog id="signature-olfactive" class="bg-1">
+			<fieldset>
+				<legend>LA SIGNATURE OLFACTIVE</legend>
+				<p>Vous souhaitez donner une dimension olfactive à votre marque ?</p>
+				<p>La signature olfactive est faite pour vous !</p>
+				<p>Si nous gardons en mémoire 1 % de ce que nous touchons, 2 % de ce que nous entendons, 5 % de ce que nous voyons, nous mémorisons 35 % de ce que nous sentons.</p>
+				<p>L’odorat est le seul sens qui relie les souvenirs à vos émotions. Grâce à la signature olfactive, vos souvenirs resteront gravés dans nos mémoire. </p>
+				<p>Un projet plein de sensorialité !</p>
+				<p>Demander votre devis.</p>
+			</fieldset>
+			<div class="row">
+				
+			</div>
+		</dialog>
+		<dialog id="atelier-parfum" class="bg-0">
+		
+		</dialog>
+		<dialog id="atelier-enfant" class="bg-0">
+		
+		</dialog>
+		<dialog id="atelier-senior" class="bg-1">
+		
+		</dialog>
+		<script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+		  <script>
+			AOS.init();
+			document.querySelectorAll("dialog").forEach(dialog=>{
+				const id = dialog.id
+				dialog.addEventListener('click', function(event) {
+				  var rect = dialog.getBoundingClientRect();
+				  var isInDialog = (rect.top <= event.clientY && event.clientY <= rect.top + rect.height &&
+					rect.left <= event.clientX && event.clientX <= rect.left + rect.width);
+				  if (!isInDialog) {
+					dialog.close();
+				  }
+				});
+				document.querySelectorAll(`.card[data-target="${id}"]`).forEach(card=>{
+					card.addEventListener('click',()=>{
+						dialog.showModal()
+					})
+				})
+			})
+		  </script>
+	</body>
+</html>
