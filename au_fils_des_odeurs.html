@@ -70,7 +70,6 @@
 }
 html {
     scroll-behavior: smooth;
-	scroll-snap-type: y proximity;
 }
 body {
     margin: 0;
@@ -96,6 +95,7 @@ h2 {
     text-transform: uppercase;
     font-family: var(--font-accent);
 	color:var(--color-text-primary);
+	margin:auto;
 }
 
 h2:after {
@@ -110,6 +110,8 @@ h2:after {
     background: var(--color-underline);
 	z-index:1;
 }
+
+h3{text-align:center;}
 
 a {
     font-family: var(--font-secondary);
@@ -147,6 +149,7 @@ nav a:hover{
 }
 section {
     min-height: 50vh;
+    height: 100vh;
     max-height: max-content;
     padding:var(--gap);
 	padding-top:calc( 4 * var(--gap));
@@ -265,8 +268,9 @@ ul.custom>li::before{
 	aspect-ratio:2/3;
 	position:relative;
 	transition: scale .4s ease-in-out,filter .4s ease-in-out;
-	max-height:75vh;
+	max-height:60vh;
 	max-width: var(--w-5);
+	margin:auto;
 	filter:drop-shadow(0px 1px 10px #0008) brightness(90%);
 }
 .card:hover{
@@ -292,6 +296,11 @@ ul.custom>li::before{
 	display: block;
 }
 
+@media screen and (min-aspect-ratio:3/4) {
+	html {
+		scroll-snap-type: y mandatory;
+	}
+}
 @media screen and (max-aspect-ratio:1) {
 	section{
 		max-height: max-content;
@@ -331,6 +340,7 @@ ul.custom>li::before{
     -webkit-mask-position: center;
     mask-position: center;
 }
+.map-carte{max-height:60vh;}
 
 		</style>
 	</head>
@@ -364,7 +374,7 @@ ul.custom>li::before{
 							loading="lazy" decoding="async"
 						/>
 						<h2>AU FIL DES ODEURS</h2>
-						<p>Ateliers olfactifs et création de parfums</p>
+						<h3>Ateliers olfactifs et création de parfums</h3>
 					</div>
 				</div>
 			</section>
@@ -472,7 +482,7 @@ ul.custom>li::before{
 						<div class="box"></div>
 					</div>
 					<div class="w-7">
-						<img class="img-cover" src="https://aufildesodeurs.com/_assets/media/a657920ab524fe2ab9dd2bfa57d94686.png" alt="carte">
+						<img class="img-contain map-carte" src="https://aufildesodeurs.com/_assets/media/a657920ab524fe2ab9dd2bfa57d94686.png" alt="carte">
 					</div>
 				</div>
 			</section>
